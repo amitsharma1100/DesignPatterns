@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{EAB3E120-B13F-46C3-9896-93214F39635A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAB3E120-B13F-46C3-9896-93214F39635A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB3E120-B13F-46C3-9896-93214F39635A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAB3E120-B13F-46C3-9896-93214F39635A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAB3E120-B13F-46C3-9896-93214F39635A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47F5F0A6-8069-41DC-964C-B65D614BBE41}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://amitsfirstgo.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DesignPatterns\\DesignPatterns.csproj
+		SccProjectName1 = DesignPatterns
+		SccLocalPath1 = DesignPatterns
+	EndGlobalSection
+EndGlobal
