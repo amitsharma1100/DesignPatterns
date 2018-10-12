@@ -1,7 +1,11 @@
-﻿using DesignPatterns.Patterns.Builder;
+using DesignPatterns.Patterns.Adapter;
+using DesignPatterns.Patterns.Bridge;
+using DesignPatterns.Patterns.Builder;
 using DesignPatterns.Patterns.Decorator;
 using DesignPatterns.Patterns.FacadeDesign;
 using DesignPatterns.Patterns.Factory;
+using DesignPatterns.Patterns.Mediator;
+using DesignPatterns.Patterns.ProtoType;
 using DesignPatterns.Patterns.Singleton;
 using System;
 
@@ -36,7 +40,7 @@ namespace DesignPatterns
             Console.WriteLine("Choose Mobile \n 1. Apple\n 2. Nokia\n 3. Samsung\n");
             var option = Convert.ToInt32(Console.ReadLine());
             MobileType mobileType = MobileType.None;
-            switch(option)
+            switch (option)
             {
                 case 1:
                     mobileType = MobileType.Apple;
@@ -99,18 +103,91 @@ namespace DesignPatterns
             string _approved = "approved";
             string _rejected = "rejected";
 
-        // Facade
-        Mortgage mortgage = new Mortgage();
+            // Facade
+            Mortgage mortgage = new Mortgage();
 
             // Evaluate mortgage eligibility for customer
             Customer customer = new Customer("Ann McKinsey");
             bool eligible = mortgage.IsEligible(customer, 125000);
 
-            Console.WriteLine($"{ customer.Name} has been" + (eligible ? _approved  : _rejected));
-           
-   
+            Console.WriteLine($"{ customer.Name} has been" + (eligible ? _approved : _rejected));
+
+
             // Wait for user
-               Console.ReadKey();
+            Console.ReadKey();
+        }
+
+        public static void ProtoTypePattern()
+        {
+            Developer dev = new Developer();
+            dev.Name = "Chris";
+            dev.Role = "Team Leader";
+            dev.PreferredLanguage = "C#";
+
+            Developer devCopy = (Developer)dev.Clone();
+            devCopy.Name = "Griff";
+
+            Console.WriteLine(dev.GetDetails());
+            Console.WriteLine(devCopy.GetDetails());
+
+            Typist typist = new Typist();
+            typist.Name = "Helen";
+            typist.Role = "Typist";
+            typist.WordsPerMinute = 120;
+
+            Typist typistCopy = (Typist)typist.Clone();
+            typistCopy.Name = "SJ";
+            typistCopy.WordsPerMinute = 115;
+
+            Console.WriteLine(typist.GetDetails());
+            Console.WriteLine(typistCopy.GetDetails());
+
+            Console.ReadKey();
+        }
+
+        public static void AdapterPattern()
+        {
+            ITarget Itarget = new EmployeeAdapter();
+            ThirdPartyBillingSystem client = new ThirdPartyBillingSystem(Itarget);
+            client.ShowEmployeeList();
+
+            Console.ReadKey();
+        }
+
+        public static void BridgePattern()
+        {
+            IMessageSender email = new EmailSender();
+            IMessageSender queue = new MSMQSender();
+            IMessageSender web = new WebServiceSender();
+
+            Message message = new SystemMessage();
+            message.Subject = "Test Message";
+            message.Body = "Hi, This is a Test Message";
+
+            message.MessageSender = email;
+            message.Send();
+
+            message.MessageSender = queue;
+            message.Send();
+
+            message.MessageSender = web;
+            message.Send();
+
+            UserMessage usermsg = new UserMessage();
+            usermsg.Subject = "Test Message";
+            usermsg.Body = "Hi, This is a Test Message";
+            usermsg.UserComments = "I hope you are well";
+
+            usermsg.MessageSender = email;
+            usermsg.Send();
+
+            Console.ReadKey();
+        }
+
+        public static void MediatorPattern()
+        {
+            ConcreteColleagueA Colleague1;
+            ConcreteColleagueB Colleague2;
         }
     }
 }
